@@ -1,0 +1,133 @@
+.banner {
+  background: rgba(51, 51, 51, 1);
+  background-image: url('https://res.cloudinary.com/dywsrfqty/image/upload/v1698088374/Tasty%20Kitchen%20images/a1hm6h1pzmcayfapxjru.png');
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-right: 10px;
+}
+@media (min-width: 768px) {
+  .banner {
+    padding-left: 80px;
+    height: 260px;
+  }
+}
+.banner-image-sm {
+  width: 200px;
+  height: 200px;
+  top: -94px;
+  left: -68px;
+  border-radius: 133.98px;
+  margin-left: -65px;
+  margin-top: -60px;
+}
+@media (min-width: 500px) {
+  .banner-image-sm {
+    width: 215px;
+    height: 215px;
+  }
+}
+@media (min-width: 768px) {
+  .banner-image-sm {
+    display: none;
+  }
+}
+.banner-image-lg {
+  display: none;
+}
+@media (min-width: 768px) {
+  .banner-image-lg {
+    display: block;
+    width: 300px;
+    height: 80%;
+    border-radius: 10px;
+  }
+}
+.banner-head {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+}
+@media (min-width: 768px) {
+  .banner-head {
+    font-size: 21px;
+  }
+}
+.location {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  max-width: 250px;
+}
+@media (min-width: 768px) {
+  .location {
+    font-size: 14px;
+  }
+}
+.restaurant-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'DM Sans';
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+  margin: 0px;
+  text-align: left;
+}
+.restaurant-review {
+  font-family: 'DM Sans';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  margin: 0px;
+}
+.rating-con-banner-sm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.rating-des {
+  margin-top: 0px;
+  font-size: 14px;
+}
+.line {
+  height: 44px;
+  width: 0px;
+  border: 1px solid rgba(226, 232, 240, 1);
+}
+.food-items-con {
+  list-style: none;
+  padding-left: 0px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .food-items-con {
+    padding: 15px 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* gap: 10px; */
+  }
+}

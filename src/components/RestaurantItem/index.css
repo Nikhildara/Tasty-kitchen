@@ -1,0 +1,65 @@
+.restaurant-item {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 10px;
+  height: 150px;
+  flex-grow: 1;
+}
+@media (min-width: 768px) {
+  .restaurant-item {
+    width: 390px;
+  }
+}
+.hotel-image {
+  width: 190px;
+  height: 90%;
+  border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .hotel-image {
+    width: 210px;
+    height: 100%;
+  }
+}
+.resta-name {
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+  color: rgba(51, 65, 85, 1);
+}
+.resta-type {
+  font-family: 'DM Sans';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(100, 116, 139, 1);
+}
+.rating-con {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.rating-value {
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(30, 41, 59, 1);
+}
+.rating-count {
+  font-family: 'DM Sans';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(100, 116, 139, 1);
+}

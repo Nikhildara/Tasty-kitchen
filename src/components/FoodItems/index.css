@@ -1,0 +1,102 @@
+.food-item {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 10px;
+  height: 150px;
+  flex-grow: 1;
+  /* width: 50%; */
+}
+@media (min-width: 768px) {
+  .food-item {
+    width: 45%;
+    gap: 20px;
+  }
+}
+
+.food-name {
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+  color: rgba(51, 65, 85, 1);
+  margin: 4px;
+}
+.food-price {
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 3px;
+}
+.rating-value-food {
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 3px;
+}
+.food-image {
+  width: 180px;
+  height: 85%;
+  border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .food-image {
+    width: 210px;
+    height: 90%;
+  }
+}
+.add-btn {
+  color: rgba(255, 164, 18, 1);
+  border: 1.45px solid rgba(255, 164, 18, 1);
+  width: 42.17px;
+  height: 23.59px;
+  padding: 5.79px, 11.59px, 5.79px, 11.59px;
+  border-radius: 5.79px;
+  /* border: 1.45px; */
+  gap: 5.79px;
+  background-color: transparent;
+  /* //styleName: Action / Button / Small; */
+  font-family: 'DM Sans';
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  /* text-align: left; */
+  cursor: pointer;
+}
+.count-con {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 3px;
+}
+.count-btn {
+  border: 0.75px solid rgba(71, 85, 105, 1);
+  color: rgba(71, 85, 105, 1);
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  border-radius: 2.25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.count-text {
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 3px;
+  width: 10px;
+}
