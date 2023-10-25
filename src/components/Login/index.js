@@ -21,6 +21,7 @@ const Login = props => {
 
   const submitDetails = async e => {
     e.preventDefault()
+    // localStorage.setItem(('activeTab': 'Home'))
     // console.log(username, password)
     const Details = {username, password}
     if (username === 'Nikhil' && password === 'Nikhil@208') {

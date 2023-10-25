@@ -1,0 +1,15 @@
+.notfound-image {
+  width: 100px;
+}
+.not-found-width {
+  width: 280px;
+}
+
+@media (min-width: 768px) {
+  .not-found-width {
+    width: 380px;
+  }
+  .notfound-image {
+    width: 180px;
+  }
+}

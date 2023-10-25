@@ -131,3 +131,10 @@
     /* gap: 10px; */
   }
 }
+
+.main-loader-con {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -16,7 +16,7 @@ const RestaurantPage = props => {
       <div className="restaurant-con">
         <RestaurantDetail id={id} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

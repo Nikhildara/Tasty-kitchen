@@ -1,13 +1,16 @@
 import {useState, useEffect, useRef} from 'react'
 import {AiFillStar} from 'react-icons/ai'
 import {FaRupeeSign} from 'react-icons/fa'
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import FoodItems from '../FoodItems'
+import Footer from '../Footer'
 import './index.css'
 
 const RestaurantDetail = props => {
   const {id} = props
   const [restaurantData, setRestaurantData] = useState({})
+  const [loader, setLoader] = useState(false)
   const [load, setload] = useState(false)
   const [foodItem, setFoodItem] = useState([])
   let cartDataList = 'empty'
@@ -15,6 +18,7 @@ const RestaurantDetail = props => {
   const jwtToken = Cookies.get('jwt_token')
 
   const getData = async () => {
+    setLoader(true)
     const Url = `https://apis.ccbp.in/restaurants-list/${id}`
     const option = {
       method: 'GET',
@@ -40,6 +44,7 @@ const RestaurantDetail = props => {
     }
     setRestaurantData(updatedData)
     setFoodItem(updatedData.foodItems)
+    setLoader(false)
   }
   // console.log(restaurantData)
 
@@ -68,17 +73,26 @@ const RestaurantDetail = props => {
     }
   }
 
-  return (
+  return loader ? (
+    <div className="main-loader-con" data-testid="restaurant-details-loader">
+      <Loader
+        type="TailSpin"
+        color="rgba(247, 147, 30, 1)"
+        width={53.33}
+        height={53.33}
+      />
+    </div>
+  ) : (
     <div>
       <div className="banner">
         <img
           src={restaurantData.imageUrl}
-          alt="food"
+          alt="restaurant"
           className="banner-image-sm"
         />
         <img
           src={restaurantData.imageUrl}
-          alt="food"
+          alt="restaurant"
           className="banner-image-lg"
         />
         <div>
@@ -114,6 +128,7 @@ const RestaurantDetail = props => {
           <FoodItems key={e.id} item={e} addToLocal={addToLocal} />
         ))}
       </ul>
+      <Footer />
     </div>
   )
 }

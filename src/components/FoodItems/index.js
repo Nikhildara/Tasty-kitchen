@@ -35,8 +35,9 @@ const FoodItems = props => {
   //   console.log(props)
 
   const addToCart = () => {
+    const date = new Date()
     setToCount(prev => !prev)
-    addToLocal({...item, quantity: 1})
+    addToLocal({...item, quantity: 1, date})
   }
 
   const decQuantity = () => {
@@ -59,7 +60,7 @@ const FoodItems = props => {
       const filterData = parsedData.filter(e => e.id !== id)
       const stringfiedData = JSON.stringify(filterData)
       localStorage.setItem('cartData', stringfiedData)
-      setQuatity(0)
+      setToCount(prev => !prev)
     }
   }
   const addQuantity = () => {
@@ -82,7 +83,7 @@ const FoodItems = props => {
   }
 
   return (
-    <li className="food-item">
+    <li className="food-item" data-testid="foodItem">
       <img src={item.image_url} alt="restaurant" className="food-image" />
       <div>
         <p className="food-name">{item.name}</p>
@@ -100,11 +101,23 @@ const FoodItems = props => {
           </button>
         ) : (
           <div className="count-con">
-            <button type="button" className="count-btn" onClick={decQuantity}>
+            <button
+              type="button"
+              className="count-btn"
+              onClick={decQuantity}
+              data-testid="decrement-quantity"
+            >
               -
             </button>
-            <p className="count-text">{quantity}</p>
-            <button type="button" className="count-btn" onClick={addQuantity}>
+            <p className="count-text" data-testid="active-count">
+              {quantity}
+            </p>
+            <button
+              type="button"
+              className="count-btn"
+              onClick={addQuantity}
+              data-testid="increment-quantity"
+            >
               +
             </button>
           </div>
