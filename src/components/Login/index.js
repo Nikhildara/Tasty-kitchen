@@ -24,6 +24,7 @@ const Login = props => {
     e.preventDefault()
     // localStorage.setItem(('activeTab': 'Home'))
     // console.log(username, password)
+    localStorage.setItem('activeTab', 'Home')
     const Details = {username, password}
     if (username === 'Nikhil' && password === 'Nikhil@208') {
       Details.username = 'rahul'

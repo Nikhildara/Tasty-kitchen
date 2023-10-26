@@ -74,7 +74,7 @@ const HomeContent = () => {
   }
 
   const nextPage = () => {
-    if (page < 20) {
+    if (page < 4) {
       setPage(prevPage => prevPage + 1)
     }
   }
@@ -154,7 +154,7 @@ const HomeContent = () => {
           <AiOutlineLeft />
         </button>
         <p className="pagination-value">
-          <span data-testid="active-page-number">{page}</span> of 20
+          <span data-testid="active-page-number">{page}</span> of 4
         </p>
         <button
           type="button"

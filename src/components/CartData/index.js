@@ -203,6 +203,7 @@ const CartData = () => {
                 type="button"
                 className="place-btn"
                 data-testid="total-price"
+                onClick={() => localStorage.setItem('cartData', 'empty')}
               >
                 Place order
               </button>
