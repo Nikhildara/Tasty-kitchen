@@ -7,6 +7,7 @@ import RestaurantPage from './components/RestaurantPage'
 import CartPage from './components/CartPage'
 import SuccessPage from './components/SuccessPage'
 import NotFound from './components/NotFound'
+import ProjectedRoute from './components/ProtectedRoute'
 // import TabContext from './Context/activeTabContext'
 
 const sortByOptions = [
@@ -32,10 +33,10 @@ const App = () => {
   return (
     <Switch>
       <Route exact path="/login" component={Login} />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/cart" component={CartPage} />
-      <Route exact path="/success" component={SuccessPage} />
-      <Route exact path="/restaurant/:id" component={RestaurantPage} />
+      <ProjectedRoute exact path="/" component={Home} />
+      <ProjectedRoute exact path="/cart" component={CartPage} />
+      <ProjectedRoute exact path="/success" component={SuccessPage} />
+      <ProjectedRoute exact path="/restaurant/:id" component={RestaurantPage} />
       <Route exact path="/bad-path" component={NotFound} />
       <Redirect to="/bad-path" />
     </Switch>

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
 
@@ -47,6 +48,12 @@ const Login = props => {
       setErrMsg(data.error_msg)
       console.log(data)
     }
+  }
+
+  const jwtToken = Cookies.get('jwt_token')
+
+  if (jwtToken) {
+    return <Redirect to="/" />
   }
 
   return (
