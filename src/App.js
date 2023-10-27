@@ -3,11 +3,13 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import './App.css'
 import Login from './components/Login'
 import Home from './components/Home'
+import HomeContent from './components/HomeContent'
 import RestaurantPage from './components/RestaurantPage'
 import CartPage from './components/CartPage'
 import SuccessPage from './components/SuccessPage'
 import NotFound from './components/NotFound'
 import ProjectedRoute from './components/ProtectedRoute'
+import Signup from './components/SignupPage'
 // import TabContext from './Context/activeTabContext'
 
 const sortByOptions = [
@@ -32,6 +34,7 @@ const App = () => {
 
   return (
     <Switch>
+      <Route exact path="/sign-up" component={Signup} />
       <Route exact path="/login" component={Login} />
       <ProjectedRoute exact path="/" component={Home} />
       <ProjectedRoute exact path="/cart" component={CartPage} />

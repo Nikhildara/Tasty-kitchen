@@ -22,6 +22,8 @@ const sortByOptions = [
 ]
 
 const HomeContent = () => {
+  console.log('Home Content')
+
   const [activeSort, setActiveSort] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
   const ListedData = useRef([])

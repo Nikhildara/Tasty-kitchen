@@ -1,35 +1,42 @@
 import React, {useState} from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, useHistory, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
+
+// let num = 0
 
 const Login = props => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showErr, setShowErr] = useState(false)
   const [errMsg, setErrMsg] = useState('')
-  //   console.log(password)
-  //   console.log(password.length)
-
-  //   const star = '* '.repeat(password.length)
-  //   console.log(star)
+  const history = useHistory()
 
   const ToHome = jwtToken => {
+    localStorage.setItem('activeTab', 'Home')
     Cookies.set('jwt_token', jwtToken, {expires: 2})
-    const {history} = props
+    console.log(props)
+
     history.replace('/')
+    setErrMsg(false)
+    console.log('moved to home')
+
+    // return <Redirect to="/" />
   }
 
   const submitDetails = async e => {
     e.preventDefault()
     // localStorage.setItem(('activeTab': 'Home'))
-    // console.log(username, password)
-    localStorage.setItem('activeTab', 'Home')
+
+    const stringifiedCredential = localStorage.getItem('SignupDetails')
+    const parsedData = JSON.parse(stringifiedCredential)
+    const {signUpUsername, signUpPassword} = parsedData
+
     const Details = {username, password}
-    if (username === 'Nikhil' && password === 'Nikhil@208') {
+    if (username === signUpUsername && password === signUpPassword) {
       Details.username = 'rahul'
       Details.password = 'rahul@2021'
-    } else if (username === 'Nikhil' && password !== 'Nikhil@208') {
+    } else if (username === signUpUsername && password !== signUpPassword) {
       Details.username = 'rahul'
       //   Details.password = 'rahul@2021'
     }
@@ -41,7 +48,10 @@ const Login = props => {
     const response = await fetch(URL, options)
     if (response.ok === true) {
       const data = await response.json()
+      setUsername('')
+      setPassword('')
       ToHome(data.jwt_token)
+      //   return <Redirect to="/" />
     }
     if (response.ok === false) {
       const data = await response.json()
@@ -52,10 +62,12 @@ const Login = props => {
   }
 
   const jwtToken = Cookies.get('jwt_token')
+  console.log(jwtToken)
+  //   console.log(num)
 
-  if (jwtToken) {
-    return <Redirect to="/" />
-  }
+  //   if (jwtToken !== undefined) {
+  //     return <Redirect to="/" />
+  //   }
 
   return (
     <div className="login-con">
@@ -75,7 +87,7 @@ const Login = props => {
             </label>
             <input
               id="username1"
-              name={username}
+              value={username}
               className="input"
               type="text"
               onChange={e => {
@@ -106,6 +118,12 @@ const Login = props => {
             Login
           </button>
         </form>
+        <Link to="/sign-up" style={{textDecoration: 'none'}}>
+          <p className="sign-up-des sign-sm">
+            Don't have an account?
+            <span className="sign-up">Signup now</span>
+          </p>
+        </Link>
       </div>
       <div className="login-page-lg">
         <div className="login-con-lg">
@@ -162,6 +180,12 @@ const Login = props => {
                   Login
                 </button>
               </form>
+              <Link to="/sign-up" style={{textDecoration: 'none'}}>
+                <p className="sign-up-des">
+                  Don't have an account?{' '}
+                  <span className="sign-up">Signup now</span>
+                </p>
+              </Link>
             </div>
           </div>
         </div>
