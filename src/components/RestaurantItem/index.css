@@ -30,6 +30,7 @@
   letter-spacing: 0.20000000298023224px;
   text-align: left;
   color: rgba(51, 65, 85, 1);
+  max-width: 120px;
 }
 .resta-type {
   font-family: 'DM Sans';

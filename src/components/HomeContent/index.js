@@ -128,10 +128,7 @@ const HomeContent = () => {
       <div className="sort-small">{SortModel()}</div>
       <hr className="hr" />
       {isLoading ? (
-        <div
-          className="carousel-loader-con"
-          data-testid="restaurants-list-loader"
-        >
+        <div className="list-loader-con" data-testid="restaurants-list-loader">
           <Loader
             type="TailSpin"
             color=" rgba(247, 147, 30, 1)"

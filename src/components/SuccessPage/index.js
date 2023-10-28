@@ -11,10 +11,10 @@ const SuccessPage = () => (
         alt="vector"
         className="success-image"
       />
-      <h1 className="success-head">Payment Successful</h1>
+      <h1 className="success-head">Ordered Successful</h1>
       <p className="success-des">
         Thank you for ordering <br />
-        Your payment is successfully completed.
+        You can make payment at Delivery.
       </p>
       <Link to="/">
         <button

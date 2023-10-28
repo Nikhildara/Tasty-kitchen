@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Redirect, useHistory, Link} from 'react-router-dom'
+import {Redirect, useHistory, Link, useNavigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
 
@@ -11,6 +11,7 @@ const Login = props => {
   const [showErr, setShowErr] = useState(false)
   const [errMsg, setErrMsg] = useState('')
   const history = useHistory()
+  //   const navigate = useNavigate()
 
   const ToHome = jwtToken => {
     localStorage.setItem('activeTab', 'Home')
@@ -18,6 +19,7 @@ const Login = props => {
     console.log(props)
 
     history.replace('/')
+    // navigate('/')
     setErrMsg(false)
     console.log('moved to home')
 
@@ -38,26 +40,30 @@ const Login = props => {
       Details.password = 'rahul@2021'
     } else if (username === signUpUsername && password !== signUpPassword) {
       Details.username = 'rahul'
-      //   Details.password = 'rahul@2021'
     }
-    const URL = 'https://apis.ccbp.in/login'
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(Details),
-    }
-    const response = await fetch(URL, options)
-    if (response.ok === true) {
-      const data = await response.json()
-      setUsername('')
-      setPassword('')
-      ToHome(data.jwt_token)
-      //   return <Redirect to="/" />
-    }
-    if (response.ok === false) {
-      const data = await response.json()
-      setShowErr(true)
-      setErrMsg(data.error_msg)
-      console.log(data)
+    if (
+      (username === signUpUsername && password === signUpPassword) ||
+      (username === signUpUsername && password !== signUpPassword)
+    ) {
+      const URL = 'https://apis.ccbp.in/login'
+      const options = {
+        method: 'POST',
+        body: JSON.stringify(Details),
+      }
+      const response = await fetch(URL, options)
+      if (response.ok === true) {
+        const data = await response.json()
+        setUsername('')
+        setPassword('')
+        ToHome(data.jwt_token)
+        //   return <Redirect to="/" />
+      }
+      if (response.ok === false) {
+        const data = await response.json()
+        setShowErr(true)
+        setErrMsg(data.error_msg)
+        console.log(data)
+      }
     }
   }
 
@@ -65,9 +71,9 @@ const Login = props => {
   console.log(jwtToken)
   //   console.log(num)
 
-  //   if (jwtToken !== undefined) {
-  //     return <Redirect to="/" />
-  //   }
+  if (jwtToken !== undefined) {
+    return <Redirect to="/" />
+  }
 
   return (
     <div className="login-con">

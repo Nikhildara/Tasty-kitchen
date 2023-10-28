@@ -253,12 +253,11 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  /* justify-content: flex-start; */
   width: 30%;
-  /* padding-left: 10px; */
 }
 .cart-image-lg {
-  width: 150px;
+  width: 70%;
+  max-width: 150px;
   height: 120px;
   border-radius: 10px;
 }

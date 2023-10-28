@@ -5,6 +5,7 @@ import './index.css'
 const Signup = () => {
   const [signUpUsername, setUsername] = useState('')
   const [signUpPassword, setPassword] = useState('')
+  const [signUpMobile, setMobile] = useState('')
   const [SignUpAddress, setAddress] = useState('')
   const [showErr, setShowErr] = useState(false)
   const history = useHistory()
@@ -14,13 +15,15 @@ const Signup = () => {
     if (
       signUpUsername !== '' &&
       signUpPassword !== '' &&
-      SignUpAddress !== ''
+      SignUpAddress !== '' &&
+      signUpMobile !== ''
     ) {
       setShowErr(false)
       const details = {
         signUpUsername,
         signUpPassword,
         SignUpAddress,
+        signUpMobile,
       }
       const stringifiedData = JSON.stringify(details)
       localStorage.setItem('SignupDetails', stringifiedData)
@@ -82,6 +85,20 @@ const Signup = () => {
                 type="password"
                 onChange={e => {
                   setPassword(e.target.value)
+                }}
+              />
+            </div>
+            <div className="input-item">
+              <label htmlFor="password1" className="label">
+                MOBILE
+              </label>
+              <input
+                id="password1"
+                value={signUpMobile}
+                className="input"
+                type="text"
+                onChange={e => {
+                  setMobile(e.target.value)
                 }}
               />
             </div>

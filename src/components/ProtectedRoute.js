@@ -1,13 +1,12 @@
-import {Redirect, Route} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
-const jwtToken = Cookies.get('jwt_token')
-
-const ProjectedRoute = props => {
-  if (jwtToken === undefined) {
+const ProtectedRoute = props => {
+  const token = Cookies.get('jwt_token')
+  if (token === undefined) {
     return <Redirect to="/login" />
   }
   return <Route {...props} />
 }
 
-export default ProjectedRoute
+export default ProtectedRoute
